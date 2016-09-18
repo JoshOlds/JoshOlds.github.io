@@ -1,0 +1,259 @@
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
+
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css';
+
+@include foundation-everything(true);
+
+// My code starts here...
+$global-flexbox: true;
+$row-width: 100%; //Full width rows!
+
+$primary-color: #ffcc00; //Halloween orange
+// $primary-color:#00ff00; //Sweet lime
+$dark-background:#1d1d1d;
+$light-background:  #fafafa;
+
+@font-face{
+    font-family: futura;
+    src: url("fonts/futuralight.ttf");
+
+}
+
+.row{
+    max-width: 100%;
+} //Full width rows override!
+
+.text-center{
+    text-align: center;
+}
+
+.img-circle{
+    border-radius: 50%;
+}
+
+.img-center{   
+    display: flex;
+    justify-content: center;
+    align-items: middle;
+}
+
+.header-spacing{
+    margin: 40px 0px;
+}
+
+.row.section-1{
+    background: linear-gradient($dark-background, (lighten($dark-background, 10%)));
+    padding: 50px 0px;
+    color: white;
+    height: 100%;
+
+    hr{
+        border-color: $primary-color;
+        max-width: 50%;
+    }
+
+    @include breakpoint(medium down){
+        min-height: 1200px;
+        h1{
+            font-size: 6em;
+        }
+        h3{
+            font-size: 4em;
+        }
+        img{
+            height: 50%;
+            width: 50%;
+        }
+        i{
+            font-size: 10em;
+        }
+        
+        @include breakpoint(landscape){
+            height: 1200px;
+        }
+    }
+
+   
+}
+.scroll-arrow{
+    color: $primary-color;
+    font-size: 4em;
+    animation-name: text-glow;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+@keyframes text-glow{
+    from{text-shadow: 0px 0px 0px $primary-color;}
+    to{text-shadow: 0px 0px 10px $primary-color;}
+}
+
+.row.section-2{
+    background: $light-background;
+    padding: 50px 0px;
+    p{
+        max-width: 80%;
+        margin: auto;
+        padding: 20px 0px;
+    }
+}
+
+.section-3-content{
+    padding: 75px 0px;
+    max-width: 90%;
+    margin: auto;
+    hr{
+        max-width: 50%;
+        border-color: black;
+    }
+    p{
+        max-width: 75%;
+        margin: auto;
+        @include breakpoint(medium down){
+            font-size: 0.75em;
+        }
+    }
+
+}
+.section-3-content.dark{
+    color: white;
+    hr{
+        border-color: $primary-color;
+    }
+}
+.section-3-header{
+    font-family: futura;
+    padding: 30px 0px 0px 0px;
+}
+.section-3-header.dark{
+    color: $primary-color;
+}
+
+
+.row.section-4{
+    background: $light-background;
+
+}
+
+.portfolio{
+    font-family: futura;
+}
+
+.card{
+    padding: 40px;
+    position: relative;
+    img{
+        border-radius: 10%;
+    }
+
+    .card-container{
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        right: 75%;
+        bottom: 75%;
+        width: 50%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.25s linear;
+
+        h2{
+            font-size: 1.5em;
+            color: lightgray;
+            @include breakpoint(medium down){
+                font-size: 3em;
+            }
+        }
+        h1{ 
+            font-size: 2.5em;
+            color: white;
+            @include breakpoint(medium down){
+                font-size: 4em;
+            }
+        }
+        button{
+            color: $primary-color;
+            border-color: $primary-color;
+            font-size: 2em;
+            @include breakpoint(medium down){
+                font-size: 3em;
+            }
+        }
+    }
+}
+.card:hover > img{
+    -webkit-filter: brightness(30%) blur(2px); /* Chrome, Safari, Opera */
+    filter: brightness(30%) blur(2px);
+
+    transition: 0.2s -webkit-filter linear;
+    transition: 0.2s filter linear;
+}
+.card:hover > .card-container{
+    visibility: visible;
+    opacity: 1;
+}
+.button.hollow:hover{
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: black;
+    transition: background-color .25s linear, color .25s linear;
+}
+
+.section-5{
+    background: $light-background;
+    padding: 40px 0px;
+}
+
+.snippet{
+    border: none;
+    box-shadow: none;
+    padding: 20px 0px;
+    h1{
+        font-size: 6em;
+    }
+    p{
+        max-width: 75%;
+        margin: auto;
+    }
+}
+.snippet:hover{
+        box-shadow: 0px 0px 20px black;
+        border-radius: 5%;
+        background: white;
+        transition: box-shadow .2s linear;
+    }
+
+.section-6{
+    background: complement($dark-background);
+    padding: 40px 0px;
+    h1{
+        color: $primary-color;
+    }
+    hr{
+        max-width: 25%;
+        color: lighten($dark-background, 20%);
+    }
+    h3{
+        color: lighten($dark-background, 20%);
+    }
+}
+.logo{
+    max-height: 96px;
+    max-width: 96px;
+}
+
+.dark-background{
+    background-color: #1d1d1d;
+}
+
+
+
